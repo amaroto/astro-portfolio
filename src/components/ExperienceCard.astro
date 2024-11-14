@@ -1,0 +1,23 @@
+---
+import type { Experience } from '../data/experiences';
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience } = Astro.props;
+---
+
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+  <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+    {experience.title}
+  </h3>
+  <p class="text-gray-600 dark:text-gray-400 mb-4">
+    {experience.company} • {experience.period}
+  </p>
+  <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+    {experience.achievements.map((achievement) => (
+      <li>{achievement}</li>
+    ))}
+  </ul>
+</div>

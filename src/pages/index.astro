@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import EducationCard from "../components/EducationCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import PdfButton from "../components/PdfButton.astro";
+import { experiences } from "../data/experiences";
+import { education } from "../data/education";
+import { projects } from "../data/projects";
+---
+
+<Layout title="Alejandro Maroto Romero - Portfolio">
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white py-20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+          Alejandro Maroto Romero
+        </h1>
+        <p class="text-xl md:text-2xl mb-8">Software Developer</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        >
+          About Me
+        </h2>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            I am a passionate software developer with a strong foundation in
+            modern web technologies.
+          </p>
+
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            My goal is to create efficient, scalable, and user-friendly
+            applications that solve real-world problems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        >
+          Experience
+        </h2>
+        <div class="space-y-8">
+          {
+            experiences.map((experience) => (
+              <ExperienceCard experience={experience} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        >
+          Education
+        </h2>
+        <div class="space-y-8">
+          {education.map((edu) => <EducationCard education={edu} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        >
+          Side Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white"
+        >
+          Contact
+        </h2>
+        <div class="max-w-xl mx-auto text-center">
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            Feel free to reach out to me at:
+          </p>
+          <a
+            href="mailto:alejandro.maroto.romero@gmail.com"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <PdfButton />
+</Layout>
